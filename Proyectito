@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <link rel="icon" type="image/png" href="1.JPG">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="fotitos/1love.jpeg">
+
   <title>unclick+</title>
 
   <style>
@@ -18,8 +21,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-family: "Tahoma";
-      font-style: normal;
+      font-family: Tahoma, sans-serif;
       color: #FFA6E7;
       cursor: pointer;
       padding: 20px;
@@ -46,76 +48,59 @@
       font-size: 1.4rem;
       line-height: 1.4;
       margin: 0;
-    }
-
-    p {
-      margin-top: 10px;
-      opacity: 0.6;
-      font-size: 0.8rem;
+      white-space: pre-line;
     }
   </style>
 </head>
 
 <body onclick="changeVibe()">
   <div class="container">
-  <img id="vibeImage" src="1.jpeg" alt="vibe image" />
-  <h1 id="phrase">FELIZ 14 DE FEBRERO VEXI <3 </h1>
-</div>
+    <img id="vibeImage" src="fotitos/1love.jpeg" alt="vibe image" />
+    <h1 id="phrase">FELIZ 14 DE FEBRERO VEXI &lt;3</h1>
+  </div>
 
+  <script>
+    const phrases = [
+      "Acariciar mil gatos es conocer tu alma\n\nSomos locxs rebeldes\nloco de estar a tu lado\nsos maravillosa\nextrañamente perfecta, brillante",
+      "Te amo cariño",
+      "Feliz 14 de febrero guapa 👩🏻‍❤️‍💋‍👩🏽",
+      "Después de tanto, qué gusto estar vivxs, y juntxs",
+      "Te quiero con la eternidad que nos concede la brevedad de tantos momentos inolvidables.",
+      "¡Ay, Amor! No cabe duda: ¡tu amor es una cosa esplendorosa!",
+      "Seamos la llama que caliente, siempre."
+    ];
 
-<script>
-  const phrases = [
-    "ACariciar mil gatos es conocer tu alma\n\n Somos locxs rebeldes\nloco de estar a tu lado\nsos maravillosa\extrañamente perfecta, brillante",
-    "Te amo cariño",
-    "Feliz 14 de febrero guapa👩🏻‍❤️‍💋‍👩🏽",
-    "´Después de tanto, qué gusto estar vivxs, y juntxs´",
-    "Te quiero con la eternidad que nos concede la brevedad de tantos momentos inolvidables.",
-    "¡Ay, Amor! No cabe duda: ¡tu amor es una cosa esplendorosa!",
-    "Seamos la llama que caliente, siempre."
-  ];
+    const images = [
+      "fotitos/1love.jpeg",
+      "fotitos/2love.jpeg",
+      "fotitos/3love.jpeg",
+      "fotitos/4love.jpeg",
+      "fotitos/5love.jpeg",
+      "fotitos/6love.jpeg",
+      "fotitos/7love.jpeg",
+      "fotitos/8love.jpeg"
+    ];
 
-  const images = [
-    "1.JPG",
-    "2.JPG",
-    "4.JPG",
-    "5.JPG",
-    "6.JPG",
-    "7.JPG",
-    "8.JPG",
-    "9.JPG"
- 
-  ];
+    const phraseEl = document.getElementById("phrase");
+    const imageEl = document.getElementById("vibeImage");
 
-  const phraseEl = document.getElementById("phrase");
-  const imageEl = document.getElementById("vibeImage");
+    let showing = "text";
+    imageEl.style.display = "none";
 
-  // ESTADO INICIAL ESTÁ MOSTRANDO EL TEXTO
-  let showing = "text";
-  imageEl.style.display = "none";
-
-  function changeVibe() {
-    if (showing === "text") {
-      // ocultar el texto
-      phraseEl.style.display = "none";
-
-      // mostrar imagen
-      imageEl.src = images[Math.floor(Math.random() * images.length)];
-      imageEl.style.display = "block";
-
-      showing = "image";
-    } else {
-      // ocultar imagen
-      imageEl.style.display = "none";
-
-      // mostrar texto
-      phraseEl.textContent =
-        phrases[Math.floor(Math.random() * phrases.length)];
-      phraseEl.style.display = "block";
-
-      showing = "text";
+    function changeVibe() {
+      if (showing === "text") {
+        phraseEl.style.display = "none";
+        imageEl.src = images[Math.floor(Math.random() * images.length)];
+        imageEl.style.display = "block";
+        showing = "image";
+      } else {
+        imageEl.style.display = "none";
+        phraseEl.textContent =
+          phrases[Math.floor(Math.random() * phrases.length)];
+        phraseEl.style.display = "block";
+        showing = "text";
+      }
     }
-  }
-</script>
-
+  </script>
 </body>
 </html>
