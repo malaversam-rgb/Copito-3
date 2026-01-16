@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Favicon -->
-  <link rel="icon" type="image/jpeg" href="fotitos/1love.jpeg">
+  <link rel="icon" type="image/jpeg" href="fotitos/1love.jpeg" />
 
   <title>unclick+</title>
 
@@ -25,10 +25,10 @@
       color: #FFA6E7;
       cursor: pointer;
       padding: 20px;
+      text-align: center;
     }
 
     .container {
-      text-align: center;
       width: 100%;
       max-width: 500px;
       padding: 24px;
@@ -42,6 +42,7 @@
       object-fit: cover;
       border-radius: 16px;
       margin-bottom: 18px;
+      display: none;
     }
 
     h1 {
@@ -53,9 +54,9 @@
   </style>
 </head>
 
-<body onclick="changeVibe()">
-  <div class="container">
-    <img id="vibeImage" src="fotitos/1love.jpeg" alt="vibe image" />
+<body>
+  <div class="container" onclick="changeVibe()">
+    <img id="vibeImage" alt="vibe image" />
     <h1 id="phrase">FELIZ 14 DE FEBRERO VEXI &lt;3</h1>
   </div>
 
@@ -84,22 +85,21 @@
     const phraseEl = document.getElementById("phrase");
     const imageEl = document.getElementById("vibeImage");
 
-    let showing = "text";
-    imageEl.style.display = "none";
+    let showingText = true;
 
     function changeVibe() {
-      if (showing === "text") {
+      if (showingText) {
         phraseEl.style.display = "none";
         imageEl.src = images[Math.floor(Math.random() * images.length)];
         imageEl.style.display = "block";
-        showing = "image";
       } else {
         imageEl.style.display = "none";
         phraseEl.textContent =
           phrases[Math.floor(Math.random() * phrases.length)];
         phraseEl.style.display = "block";
-        showing = "text";
       }
+
+      showingText = !showingText;
     }
   </script>
 </body>
